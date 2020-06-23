@@ -20,19 +20,21 @@ function nonMemoized(n) {
     return nonMemoized(n - 1) + nonMemoized(n - 2)
 }
 
-let size = 10
+let size = 30
 
 let startTime = new Date().getTime()
+
 for (let i = 1; i <= size; i++) {
     console.log(withMemoization(i))
 }
-let memoFunctionCompleteTime = new Date().getTime()
 
-console.log(`Memoization took: ${memoFunctionCompleteTime - startTime}`)
+console.log(`Memoization took: ${new Date().getTime() - startTime}`)
+
+startTime = new Date().getTime()
 
 for (let i = 1; i <= size; i++) {
     console.log(nonMemoized(i))
 }
 
-console.log(`Non memoized called took: ${new Date().getTime(), memoFunctionCompleteTime}`)
+console.log(`Non memoized called took: ${new Date().getTime()-startTime}`)
 
